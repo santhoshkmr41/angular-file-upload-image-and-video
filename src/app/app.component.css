@@ -1,0 +1,15 @@
+
+.input-file{
+    padding: 3px 0.3rem !important;
+}
+
+
+.carousel-item img{
+    height: 370px;
+    min-height: 370px;
+}
+
+.video{
+    height: 370px;
+    min-height: 370px;
+}

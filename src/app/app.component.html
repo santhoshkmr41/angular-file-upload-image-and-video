@@ -1,0 +1,43 @@
+<div class="container mt-3">
+  <h4 class="text-center">File Upload</h4>
+  <hr>
+
+
+  <div class="row">
+    <div class="col-md-4 order-md-1 mb-4">
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Upload Image/Video</h5>
+          <input type="file" name="file" ng2FileSelect [uploader]="uploader" class="form-control input-file" />
+
+          <button type="button" class="btn btn-success btn-s mt-3" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+            Upload
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-8 order-md-2">
+      <div class="card">
+        <div class="card-body">
+          <carousel>
+            <slide *ngFor="let file of allFilesList; let i=index;">
+              <div class="embed-responsive embed-responsive-16by9" *ngIf="file.type=='video/mp4'">
+                <iframe class="embed-responsive-item video" [src]="file.url | safeURL" ></iframe>
+              </div>
+              <img  *ngIf="file.type!='video/mp4'" [src]="file.url | safeURL" alt="{{file.name}}" style="display: block; width: 100%;">
+            </slide>
+
+          </carousel>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+
+<router-outlet></router-outlet>
